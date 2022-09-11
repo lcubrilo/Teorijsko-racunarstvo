@@ -106,3 +106,29 @@ def tommy(printStates = True):
     if printStates: printAllStates(states)
 
     return q0
+
+def billy(printStates = True):
+    # STATES
+    global alphabet
+    start = state(alphabet, False, "start")
+    step = state(alphabet, False, "step")
+    mid = state(alphabet, False, "mid")
+    end = state(alphabet, True, "end")
+
+    states = [start, step, mid, end]
+
+    #printAllStates(states)
+
+    # TRANSITIONS
+    start.addTrasition("0,epsilon", mid) 
+    
+    start.addTrasition("1", step)
+
+    step.addTrasition("1", mid)
+
+    mid.addTrasition("1", end)
+  
+
+    if printStates: printAllStates(states)
+
+    return start

@@ -133,7 +133,7 @@ def splitValidInvalid(NKA1, n = 5):
     global alphabet
     valid, invalid = [], []
     for i in range(n):
-        for word in generateWords(alphabet, n):
+        for word in generateWords(alphabet, i):
             if checkValidity(NKA1, word):
                 valid.append(word)
             else:
