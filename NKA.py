@@ -108,7 +108,8 @@ def checkValidity(start, input, report=False):
 
     return ret[0]
 
-def eq(NKA1, NKA2, alphabet, report = False, n = 5):
+def eq(NKA1, NKA2, report = False, n = 5):
+    global alphabet
     counterExamples = ""
     for i in range(n):
         for word in generateWords(alphabet, i):
@@ -141,72 +142,16 @@ def splitValidInvalid(NKA1, n = 5):
     return valid,invalid
 
 # My example
-def oneNKA(printStates = True):    
-    # STATES
+
+def formalLanguage(NKA):
+    v, inv = splitValidInvalid(NKA)
+    return v
+
+def changeAlphabet(newalphabet):
     global alphabet
-    start = state(alphabet, False, "start")
-    good = state(alphabet, True, "good")
-    nepar = state(alphabet, False, "nepar")
-    par = state(alphabet, False, "par")
-
-    states = [start, good, nepar, par]
-
-    #printAllStates(states)
-
-    # TRANSITIONS
-    start.addTrasition("1", good) #PRVO MORAM IMATI JEDAN
-    #
-    good.addTrasition("0,1", nepar)
-
-    good.addTrasition("0", par) #PARNI MORA BITI NULA, neparni sta hoce
-
-    #
-    nepar.addTrasition(epsilon, good) #POVRATAK U GOOD
-    #
-    par.addTrasition(epsilon, good)
-    #
-    if printStates: printAllStates(states)
-    
-    return start
-
-def twoNKA(printStates = True):
-    # STATES
-    global alphabet
-    start = state(alphabet, False, "start")
-    nepar = state(alphabet, True, "nepar")
-    par = state(alphabet, True, "par")
-
-    states = [start, nepar, par]
-
-    #printAllStates(states)
-
-    # TRANSITIONS
-    start.addTrasition("1", nepar) #PRVO MORAM IMATI JEDAN
-    
-    nepar.addTrasition("0", par)
-
-    par.addTrasition("0,1", nepar)
-  
-
-    if printStates: printAllStates(states)
-
-    return start
-
+    alphabet = newalphabet
 ########## MAIN #############
 
 alphabet = ["0", "1"]
-NKA1 = oneNKA()
-NKA2 = twoNKA()
-#print(eq(NKA1, NKA2, alphabet, report=True))
 
-#print(isDKA(NKA1))
-#print(isDKA(NKA2))
 
-v, inv = splitValidInvalid(NKA2)
-print("VALID")
-for valid in v:
-    print(valid)
-    """
-print("------------\nINVALID")
-for invalid in inv:
-    print(invalid)"""
