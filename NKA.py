@@ -1,5 +1,8 @@
 # Word generation
-def generateWords(alphabet, n):
+from tabnanny import check
+
+
+def generateWords(alphabet, n = 5):
     letters = ""
     for letter in alphabet: letters+=letter
     
@@ -125,6 +128,18 @@ def isDKA(A):
 
     return True
 
+def splitValidInvalid(NKA1, n = 5):
+    global alphabet
+    valid, invalid = [], []
+    for i in range(n):
+        for word in generateWords(alphabet, n):
+            if checkValidity(NKA1, word):
+                valid.append(word)
+            else:
+                invalid.append(word)
+    
+    return valid,invalid
+
 # My example
 def oneNKA(printStates = True):    
     # STATES
@@ -182,7 +197,16 @@ def twoNKA(printStates = True):
 alphabet = ["0", "1"]
 NKA1 = oneNKA()
 NKA2 = twoNKA()
-print(eq(NKA1, NKA2, alphabet, report=True))
+#print(eq(NKA1, NKA2, alphabet, report=True))
 
-print(isDKA(NKA1))
-print(isDKA(NKA2))
+#print(isDKA(NKA1))
+#print(isDKA(NKA2))
+
+v, inv = splitValidInvalid(NKA2)
+print("VALID")
+for valid in v:
+    print(valid)
+    """
+print("------------\nINVALID")
+for invalid in inv:
+    print(invalid)"""
