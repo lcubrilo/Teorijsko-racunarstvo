@@ -143,8 +143,8 @@ def splitValidInvalid(NKA1, n = 5):
 
 # My example
 
-def formalLanguage(NKA):
-    v, inv = splitValidInvalid(NKA)
+def formalLanguage(NKA, n=5):
+    v, inv = splitValidInvalid(NKA, n)
     return v
 
 def changeAlphabet(newalphabet):
