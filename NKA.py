@@ -1,6 +1,4 @@
 # Word generation
-from tabnanny import check
-
 
 def generateWords(alphabet, n = 5):
     letters = ""
@@ -115,7 +113,7 @@ def eq(NKA1, NKA2, report = False, n = 5):
         for word in generateWords(alphabet, i):
             if checkValidity(NKA1, word) != checkValidity(NKA2, word):
                 # Give reports
-                counterExamples += "{}, ".format(word)
+                counterExamples += "{}, ".format(word if word != "" else "epsilon")
 
     if report: print(counterExamples[:-2])
     return counterExamples == ""
