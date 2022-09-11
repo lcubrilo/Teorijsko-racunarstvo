@@ -39,7 +39,7 @@ class state:
         self.transitions[letter].append(state2)
         return True
     
-    def addTrasition(self, letter, state2):
+    def addTransition(self, letter, state2):
         if len(letter.split(",")) != 1: return self.addTransitions(letter, state2)
         return self.addTrans(letter, state2)
     

@@ -13,16 +13,16 @@ def oneNKA(printStates = True):
     #printAllStates(states)
 
     # TRANSITIONS
-    start.addTrasition("1", good) #PRVO MORAM IMATI JEDAN
+    start.addTransition("1", good) #PRVO MORAM IMATI JEDAN
     #
-    good.addTrasition("0,1", nepar)
+    good.addTransition("0,1", nepar)
 
-    good.addTrasition("0", par) #PARNI MORA BITI NULA, neparni sta hoce
+    good.addTransition("0", par) #PARNI MORA BITI NULA, neparni sta hoce
 
     #
-    nepar.addTrasition(epsilon, good) #POVRATAK U GOOD
+    nepar.addTransition(epsilon, good) #POVRATAK U GOOD
     #
-    par.addTrasition(epsilon, good)
+    par.addTransition(epsilon, good)
     #
     if printStates: printAllStates(states)
     
@@ -40,11 +40,11 @@ def twoNKA(printStates = True):
     #printAllStates(states)
 
     # TRANSITIONS
-    start.addTrasition("1", nepar) #PRVO MORAM IMATI JEDAN
+    start.addTransition("1", nepar) #PRVO MORAM IMATI JEDAN
     
-    nepar.addTrasition("0", par)
+    nepar.addTransition("0", par)
 
-    par.addTrasition("0,1", nepar)
+    par.addTransition("0,1", nepar)
   
 
     if printStates: printAllStates(states)
@@ -63,13 +63,13 @@ def anotherOne(printStates = True):
     #printAllStates(states)
 
     # TRANSITIONS
-    start.addTrasition("1", start) 
-    start.addTrasition("0", good1)
+    start.addTransition("1", start) 
+    start.addTransition("0", good1)
     
-    good1.addTrasition("0", good2)
+    good1.addTransition("0", good2)
 
-    good2.addTrasition("1", start)
-    good2.addTrasition("0", good2)
+    good2.addTransition("1", start)
+    good2.addTransition("0", good2)
   
 
     if printStates: printAllStates(states)
@@ -88,19 +88,19 @@ def tommy(printStates = True):
     #printAllStates(states)
 
     # TRANSITIONS
-    q0.addTrasition("0", q1) 
-    q0.addTrasition("0", q2)
-    q0.addTrasition("1", q0)
+    q0.addTransition("0", q1) 
+    q0.addTransition("0", q2)
+    q0.addTransition("1", q0)
     
     
-    q1.addTrasition("0", q0)
-    q1.addTrasition("0", q1)
-    q1.addTrasition("0", q0)
+    q1.addTransition("0", q0)
+    q1.addTransition("0", q1)
+    q1.addTransition("0", q0)
     
 
-    q2.addTrasition("0", q2)
-    q2.addTrasition(epsilon, q1)
-    q2.addTrasition("0", q0)
+    q2.addTransition("0", q2)
+    q2.addTransition(epsilon, q1)
+    q2.addTransition("0", q0)
   
 
     if printStates: printAllStates(states)
@@ -120,13 +120,13 @@ def billy(printStates = True):
     #printAllStates(states)
 
     # TRANSITIONS
-    start.addTrasition("0,epsilon", mid) 
+    start.addTransition("0,epsilon", mid) 
     
-    start.addTrasition("1", step)
+    start.addTransition("1", step)
 
-    step.addTrasition("1", mid)
+    step.addTransition("1", mid)
 
-    mid.addTrasition("1", end)
+    mid.addTransition("1", end)
   
 
     if printStates: printAllStates(states)

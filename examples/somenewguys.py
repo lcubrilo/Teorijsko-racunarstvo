@@ -12,13 +12,13 @@ def johnathan(printStates=False):
     #printAllStates(states)
 
     # TRANSITIONS
-    p0.addTrasition("1", p1)
+    p0.addTransition("1", p1)
     
-    p1.addTrasition("epsilon", p0)
-    p1.addTrasition("0", p2)
+    p1.addTransition("epsilon", p0)
+    p1.addTransition("0", p2)
 
-    p2.addTrasition("epsilon", p0)
-    p2.addTrasition("0,1", p1)
+    p2.addTransition("epsilon", p0)
+    p2.addTransition("0,1", p1)
     
 
     if printStates: printAllStates(states)
@@ -38,15 +38,15 @@ def brock(printStates=False):
     #printAllStates(states)
 
     # TRANSITIONS
-    s.addTrasition("epsilon", p0)
+    s.addTransition("epsilon", p0)
 
-    p0.addTrasition("1", p1)
+    p0.addTransition("1", p1)
     
-    p1.addTrasition("epsilon", p0)
-    p1.addTrasition("0", p2)
+    p1.addTransition("epsilon", p0)
+    p1.addTransition("0", p2)
 
-    p2.addTrasition("epsilon", p0)
-    p2.addTrasition("0,1", p1)
+    p2.addTransition("epsilon", p0)
+    p2.addTransition("0,1", p1)
     
 
     if printStates: printAllStates(states)
